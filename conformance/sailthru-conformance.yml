@@ -1,0 +1,115 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  docs at products.zetaglobal.com/sailthru + live probes of api.sailthru.com
+  and trust.zetaglobal.com
+note: >-
+  Sailthru publishes no machine-readable contract, so every assertion below is
+  derived from the documentation and from observed responses rather than from
+  a spec. The dominant finding is negative: this is a pre-standards RPC API
+  with a proprietary signature scheme, a proprietary error envelope, no OAuth,
+  no OpenAPI and no /.well-known/ surface. The compliance side is where the
+  provider does conform — the Zeta Global trust center names externally
+  audited certifications.
+standards:
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document found on api.sailthru.com,
+    products.zetaglobal.com or zetaglobal.com (openapi.json, openapi.yaml,
+    swagger.json, /v1/openapi.json, /api-docs, /redoc all 404).
+- id: asyncapi
+  conforms: false
+  evidence: Event surface is documented as API postbacks; no AsyncAPI document published.
+- id: graphql
+  conforms: false
+  evidence: No /graphql endpoint documented or discovered.
+- id: grpc
+  conforms: false
+  evidence: No .proto definitions in the github.com/sailthru organization or in the docs.
+- id: mcp
+  conforms: false
+  evidence: No first-party MCP server published as of 2026-08.
+- id: a2a
+  conforms: false
+  evidence: '/.well-known/agent-card.json and /.well-known/agent.json 404 on every host.'
+- id: oauth2
+  conforms: false
+  evidence: >-
+    Authentication is api_key + an MD5 sig over sorted parameter values; no
+    authorization server, no token endpoint, no scopes.
+- id: oidc
+  conforms: false
+  evidence: '/.well-known/openid-configuration returns 404 on every host.'
+- id: rfc8414-oauth-metadata
+  conforms: false
+  evidence: '/.well-known/oauth-authorization-server returns 404 on every host.'
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use a proprietary {error, errormsg} envelope in JSON or XML; no
+    application/problem+json, no type URI.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: '/.well-known/security.txt returns 404 on every host.'
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No deprecation policy or Sunset/Deprecation header support documented.
+- id: rest
+  conforms: partial
+  evidence: >-
+    HTTP verbs carry intent (GET read, POST write, DELETE remove) and paths
+    name resources, but payloads are form-encoded RPC parameters and there is
+    no hypermedia, no content negotiation by Accept header and no versioning.
+- id: json
+  conforms: true
+  evidence: 'format=json returns JSON responses; format=xml also supported.'
+- id: tls12
+  conforms: true
+  evidence: >-
+    Docs state TLS 1.2 is supported and SSL is not; probe of api.sailthru.com
+    negotiated TLSv1.3 on 2026-08-12.
+- id: rate-limit-headers
+  conforms: partial
+  evidence: >-
+    Returns X-Rate-Limit-Limit / X-Rate-Limit-Remaining / X-Rate-Limit-Reset —
+    the pre-standard vendor form, not the IETF RateLimit-* draft headers, and
+    no Retry-After.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency key or replay-deduplication contract on any endpoint.
+- id: webhooks
+  conforms: true
+  evidence: >-
+    Four documented API postback types (verify, optout, update, hardbounce)
+    with shared-secret signature verification.
+- id: gdpr
+  conforms: true
+  evidence: >-
+    Listed at full maturity on the Zeta Global trust center; the JavaScript
+    library ships gdprDoNotTrack and cookiesDoNotTrack functions, and the
+    2026-07-17 release added a pixel_tracking_consent profile field for
+    open-tracking consent.
+- id: ccpa
+  conforms: true
+  evidence: Listed on the Zeta Global trust center (self-audited).
+- id: soc2-type2
+  conforms: true
+  evidence: 'Zeta Global trust center, auditor Align Assurance.'
+- id: iso-27001
+  conforms: true
+  evidence: 'Zeta Global trust center, auditor BSI.'
+- id: iso-27018
+  conforms: true
+  evidence: 'Zeta Global trust center, auditor BSI (ISO/IEC 27018:2019).'
+- id: iso-27701
+  conforms: true
+  evidence: 'Zeta Global trust center, auditor BSI.'
+- id: hitrust
+  conforms: true
+  evidence: Listed at full maturity on the Zeta Global trust center.
+compliance_scope_caveat: >-
+  The certifications above are published by Zeta Global at the corporate level
+  and the trust center does not publicly resolve which apply specifically to
+  the Sailthru product, though it does expose a product-scoped Sailthru view.
+  The underlying reports are gated behind a SafeBase access request.

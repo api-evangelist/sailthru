@@ -1,0 +1,58 @@
+generated: '2026-08-12'
+method: probed
+source: live GET of /.well-known/* on every Sailthru/Zeta host in apis.yml
+result: none
+note: >-
+  Every /.well-known/ path probed returned 404 (or 403 on the CDN host, and a
+  301 to a 404 on zetaglobal.com). Sailthru serves no security.txt, no OIDC or
+  OAuth authorization-server metadata, no api-catalog, no ai-plugin.json and no
+  A2A agent card on any host. This file records a verified ABSENCE — no
+  WellKnown, SecurityTxt, APICatalog or AgentCard pointer is wired in apis.yml
+  as a result. The disclosure route that does exist is the Bugcrowd VDP linked
+  from the Zeta Global Trust Center; see security/sailthru-vulnerability-disclosure.yml.
+hosts:
+- host: https://api.sailthru.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://ak.sail-horizon.com
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+  - {path: /.well-known/openid-configuration, status: 403}
+  - {path: /.well-known/oauth-authorization-server, status: 403}
+  - {path: /.well-known/api-catalog, status: 403}
+  - {path: /.well-known/ai-plugin.json, status: 403}
+  - {path: /.well-known/agent-card.json, status: 403}
+  - {path: /.well-known/agent.json, status: 403}
+  note: Akamai-fronted CDN host; blanket 403 on unknown paths, not a document.
+- host: https://products.zetaglobal.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://zetaglobal.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404, note: 301 then 404}
+  - {path: /.well-known/openid-configuration, status: 404, note: 301 then 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404, note: 301 then 404}
+  - {path: /.well-known/api-catalog, status: 404, note: 301 then 404}
+  - {path: /.well-known/ai-plugin.json, status: 404, note: 301 then 404}
+  - {path: /.well-known/agent-card.json, status: 404, note: 301 then 404}
+  - {path: /.well-known/agent.json, status: 404, note: 301 then 404}
+adjacent:
+- url: https://zetaglobal.com/llms.txt
+  status: 200
+  note: >-
+    Zeta Global (the parent company since November 2025) serves a corporate
+    marketing llms.txt at its website root. It describes the Zeta Marketing
+    Platform and does not document the Sailthru API, so it is recorded here as
+    context rather than harvested as Sailthru's llms.txt.

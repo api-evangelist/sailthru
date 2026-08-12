@@ -1,0 +1,59 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/postbacks.html
+docs: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/postbacks.html
+api: sailthru:sailthru-api
+spec_type: none
+asyncapi: false
+note: >-
+  Sailthru publishes no AsyncAPI document. Its event surface is "API
+  postbacks": Sailthru POSTs to a customer-hosted URL when a specific
+  lifecycle event occurs. There are four documented postback types. Delivery
+  is authenticated with the same shared-secret scheme as the API — api_key
+  plus a sig hash over all parameter values — so the receiver can verify
+  origin. There is no event catalog beyond these four, no subscription API
+  (URLs are configured in the application's API & Postbacks settings, and
+  update postbacks must be enabled by a customer success representative), and
+  no documented retry/backoff policy. A separate webhook step exists inside
+  Lifecycle Optimizer for outbound calls from a journey, which is a workflow
+  action rather than a subscribable event stream.
+transport: HTTPS POST to a customer-hosted URL
+authentication:
+  mechanism: shared-secret signature
+  parameters: [api_key, sig]
+configuration:
+  ui: API & Postbacks settings
+  per_type_urls: true
+  note: A different URL may optionally be supplied for each postback type.
+receiver_contract:
+  success_status: 200
+  failure_statuses: [403, 500]
+  note: >-
+    Response codes are recorded in the account audit log, which is the
+    documented way to confirm a postback is being processed.
+retry_policy: null
+events:
+- name: verify
+  action: verify
+  description: Confirms a double opt-in verification succeeded.
+  fields: [email, send_id, action, api_key, sig]
+- name: optout
+  action: optout
+  description: Fires when a user opts out of, or back into, delivery.
+  fields: [email, mode, optout, action, api_key, sig]
+  optional_fields: [blast_id, reason, list, message_id]
+  notes: 'mode is all or basic; optout is 1 or 0.'
+- name: update
+  action: update
+  description: >-
+    Fires when a user changes subscriptions or custom fields on a
+    Sailthru-hosted page. Must be enabled by a customer success representative.
+  fields: [sid, email, page, optout_email, lists, vars, action, api_key, sig]
+- name: hardbounce
+  action: hardbounce
+  description: Notifies of a permanent delivery failure.
+  fields: [email, send_id, blast_id, action, api_key, sig]
+  notes: Carries send_id or blast_id depending on the message that bounced.
+event_count: 4
+related:
+  lifecycle_optimizer_webhooks: https://products.zetaglobal.com/sailthru/Content/lo/using-lo/webhooks-lo.html

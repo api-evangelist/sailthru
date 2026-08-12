@@ -1,0 +1,59 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/releasenotes-2026.htm
+docs: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/releasenotes-2026.htm
+scheme: dated-product-release
+current_version: '2026-08-05'
+note: >-
+  Sailthru publishes dated product release notes rather than an API changelog.
+  The notes cover the whole product (UI, mobile, deliverability, compliance)
+  and rarely call out API-contract changes explicitly, so an integrator has to
+  read them for API impact. The release-notes index is rendered client-side by
+  MadCap Flare, so the entries below were confirmed by fetching each dated
+  note directly; the window recorded is 2026. No changelog RSS/Atom feed was
+  found.
+entries:
+- date: '2026-08-05'
+  title: 'Live Locations: New Geofencing & Lifecycle Optimizer Trigger'
+  url: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/2026/WhatsNewSailthru-2026-0805.htm
+  breaking: false
+  highlights:
+  - Marketers can define a geofence and trigger a message on entry or exit.
+  - New Live Location Entry step in Lifecycle Optimizer.
+  audience: Sailthru Mobile customers
+- date: '2026-07-17'
+  title: Consent-Based Email Open Tracking
+  url: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/2026/WhatsNewSailthru-2026-0717.htm
+  breaking: false
+  api_impact: true
+  highlights:
+  - 'New pixel_tracking_consent profile field (opt-in / opt-out / null) readable and writable on the user profile.'
+  - With the Pixel Tracking Compliance flag enabled, the open-tracking pixel is suppressed for opt-out recipients.
+  - Null consent is treated as opt-out when the compliance flag is on.
+- date: '2026-06-03'
+  title: Authenticator app for PII list exports
+  url: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/2026/WhatsNewSailthru-2026-0603.htm
+  breaking: false
+  highlights:
+  - Authenticator-app verification replaces SMS codes when exporting lists containing PII.
+- date: '2026-04-22'
+  title: Two-Way SMS
+  url: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/2026/WhatsNewSailthru-2026-0422.htm
+  breaking: false
+  highlights:
+  - Conversational, two-way SMS added to the messaging surface.
+- date: '2026-01-28'
+  title: Expire In-App Messages Now (Push / In-App Campaigns)
+  url: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/2026/WhatsNewSailthru-2026-0128.htm
+  breaking: false
+  highlights:
+  - Push/In-App campaigns on the core platform can be expired ahead of their scheduled expiration.
+- date: '2026-01-14'
+  title: 'Brand update: Zeta rebrand'
+  url: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/2026/WhatsNewSailthru-2026-0114.htm
+  breaking: false
+  highlights:
+  - Marigold name and logo replaced with Zeta across the product; phased rebrand begins.
+  - 'Stated as branding-only: no change to functionality, data, integrations or existing configurations.'
+entry_count: 6
+window: 2026

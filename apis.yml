@@ -1,26 +1,171 @@
 aid: sailthru
 name: Sailthru
-description: 'Sailthru is a company surfaced via the API Evangelist harvest backlog (source: marketing-integration-graph)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Sailthru is a cross-channel relationship-marketing and personalization
+  platform built for media, publishing, retail and e-commerce brands, unifying email,
+  SMS, mobile push, in-app and on-site messaging around a single customer profile
+  with predictive segmentation and 1:1 content personalization. Founded in New York
+  in 2008, it was acquired by CM Group (later Marigold) in 2018 and became part of
+  Zeta Global in November 2025 when Zeta bought Marigold''s enterprise software business;
+  the product is now documented as Sailthru by Zeta. Its public HTTPS API lives at
+  api.sailthru.com and covers users, lists, content, templates, blasts (campaigns),
+  transactional sends, triggers, purchases, events, includes, ad plans and stats,
+  authenticated with an api_key plus an MD5 signature computed over the request parameters.
+  It is complemented by the Zephyr template language, a JavaScript on-site personalization
+  tag, mobile SDKs, and API postbacks (webhooks) for opt-out, hardbounce, verify and
+  profile-update events.'
+image: https://zetaglobal.com/wp-content/uploads/2025/12/ZetaMarigold-Landing-page-images-09-1.png
 url: https://raw.githubusercontent.com/api-evangelist/sailthru/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:marketing-integration-graph
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment
+x-parent-company: 'Zeta Global Holdings Corp. (NYSE: ZETA)'
 specificationVersion: '0.20'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
-apis: []
+- Email Marketing
+- Marketing Automation
+- Personalization
+- Customer Data Platform
+- Transactional Email
+- SMS
+- Push Notifications
+- Retail
+- Media and Publishing
+apis:
+- aid: sailthru:sailthru-api
+  name: Sailthru API
+  description: 'The core Sailthru HTTPS API. All requests are GET, POST or DELETE
+    calls to https://api.sailthru.com/<endpointName>, authenticated with api_key,
+    an MD5 sig over the sorted parameter values, and a format parameter (json or xml).
+    Endpoints cover user profiles, lists, content, templates, blasts (campaigns),
+    transactional send, trigger, purchase, event, include, ad-plan, preview, settings,
+    stats and bulk job operations.'
+  humanURL: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/introduction.html
+  baseURL: https://api.sailthru.com
+  tags:
+  - Email Marketing
+  - Transactional Email
+  - Marketing Automation
+  - Personalization
+  properties:
+  - type: Documentation
+    url: https://products.zetaglobal.com/sailthru/Content/developers/overview.html
+  - type: APIReference
+    url: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/introduction.html
+  - type: GettingStarted
+    url: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+  - type: Authentication
+    url: authentication/sailthru-authentication.yml
+  - type: RateLimits
+    url: rate-limits/sailthru-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/sailthru-error-codes.yml
+  - type: Conventions
+    url: conventions/sailthru-conventions.yml
+  - type: Webhooks
+    url: asyncapi/sailthru-postbacks-webhooks.yml
+- aid: sailthru:sailthru-js-api
+  name: Sailthru JavaScript API (Personalization Engine)
+  description: 'The client-side Sailthru JavaScript tag (spm.v1.min.js, served from
+    ak.sail-horizon.com) used for on-site behavior tracking, content-library sync,
+    userSignUp/userSignUpConfirm calls and on-site personalization. It is the browser
+    counterpart to the server-side API and is loaded as a script rather than called
+    over REST.'
+  humanURL: https://products.zetaglobal.com/sailthru/Content/developers/api-client/javascript.html
+  baseURL: https://ak.sail-horizon.com
+  tags:
+  - Personalization
+  - JavaScript
+  - Web
+  properties:
+  - type: Documentation
+    url: https://products.zetaglobal.com/sailthru/Content/developers/api-client/javascript.html
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: TrustCenter
+  url: security/sailthru-trust-center.yml
+- type: DomainSecurity
+  url: security/sailthru-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/sailthru-vulnerability-disclosure.yml
+- type: Security
+  url: https://bugcrowd.com/engagements/cheetah-vdp
+- type: Compliance
+  url: https://trust.zetaglobal.com/?product=sailthru
 - type: Website
-  url: https://sailthru.com/
+  url: https://zetaglobal.com/sailthru/
+- type: DeveloperPortal
+  url: https://products.zetaglobal.com/sailthru/Content/developers/overview.html
+- type: Documentation
+  url: https://products.zetaglobal.com/sailthru/Content/LandingPage.htm
+- type: APIReference
+  url: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/introduction.html
+- type: GettingStarted
+  url: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+- type: Support
+  url: https://zetaglobal.com/about/contact-us/
+- type: Blog
+  url: https://zetaglobal.com/resource-center/
+- type: GitHubOrganization
+  url: https://github.com/sailthru
+- type: SignUp
+  url: https://my.sailthru.com/
+- type: TermsOfService
+  url: https://zetaglobal.com/former-marigold-now-zeta-services-agreement/
+- type: PrivacyPolicy
+  url: https://zetaglobal.com/privacy-policy
+- type: ChangeLog
+  url: https://products.zetaglobal.com/sailthru/Content/ReleaseNotes/releasenotes-2026.htm
+- type: ChangeLog
+  url: changelog/sailthru-changelog.yml
+- type: Packages
+  url: packages/sailthru-packages.yml
+- type: SDKs
+  url: packages/sailthru-packages.yml
+- type: CLI
+  url: cli/sailthru-cli.yml
+- type: Components
+  url: components/sailthru-components.yml
+- type: Authentication
+  url: authentication/sailthru-authentication.yml
+- type: Conventions
+  url: conventions/sailthru-conventions.yml
+- type: ErrorCatalog
+  url: errors/sailthru-error-codes.yml
+- type: RateLimits
+  url: rate-limits/sailthru-rate-limits.yml
+- type: Plans
+  url: plans/sailthru-plans-pricing.yml
+- type: Lifecycle
+  url: lifecycle/sailthru-lifecycle.yml
+- type: Conformance
+  url: conformance/sailthru-conformance.yml
+- type: Webhooks
+  url: asyncapi/sailthru-postbacks-webhooks.yml
+- type: LLMsTxt
+  url: llms/sailthru-llms.txt
+x-enrichment:
+  date: '2026-08-12'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1
+x-coverage:
+  state: covered
+  reason: null
+  detail: >-
+    Documentation is public, server-rendered and fully readable at
+    products.zetaglobal.com/sailthru; seventeen artifacts were harvested from it
+    and from live probes. The one genuine gap is machine-readable contract —
+    Sailthru publishes no OpenAPI, AsyncAPI, GraphQL, MCP or /.well-known/
+    surface anywhere.
+  checked: '2026-08-12'
 x-vouched-by:
 - Lytics
 - Persado

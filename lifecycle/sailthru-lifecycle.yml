@@ -1,0 +1,60 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+api: sailthru:sailthru-api
+versioning:
+  scheme: none
+  current: null
+  docs: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+  note: >-
+    The API carries no version identifier in its path, headers or parameters.
+    The only versioned surface is the client-side JavaScript tag
+    (spm.v1.min.js), where "v1" is a major-line marker rather than a release.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header support and
+    no documented notice period were found. Product changes are announced in
+    the release notes only.
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    No public SLA or uptime commitment. Zeta Global's trust center lists a
+    "Status Monitoring" control, but the underlying documentation is gated
+    behind a SafeBase access request.
+status_page:
+  url: null
+  state: inactive
+  note: >-
+    Sailthru's Atlassian Statuspage still exists but has been DEACTIVATED —
+    https://sailthru.statuspage.io/ redirects to /inactive and renders "This
+    page is currently inactive and can only be viewed by team members", and the
+    branded https://status.sailthru.com/ returns HTTP 403. There is no
+    replacement status page under zetaglobal.com (status.zetaglobal.com does
+    not resolve). No StatusPage pointer is wired in apis.yml because there is
+    no status page a customer or an agent can read.
+  evidence:
+  - {url: 'https://sailthru.statuspage.io/', status: 200, result: redirects to /inactive}
+  - {url: 'https://status.sailthru.com/', status: 403}
+  - {url: 'https://status.zetaglobal.com/', status: 0, result: does not resolve}
+  checked: '2026-08-12'
+ownership:
+  current_owner: Zeta Global Holdings Corp.
+  acquired: '2025-11'
+  history:
+  - {year: 2008, event: Founded in New York}
+  - {year: 2018, event: Acquired by CM Group (later renamed Marigold)}
+  - {year: 2025, event: 'Zeta Global completes acquisition of Marigold''s enterprise software business, including Sailthru'}
+  - {date: '2026-01-14', event: 'Phased rebrand begins — Marigold name and logo replaced with Zeta across the Sailthru product'}
+  note: >-
+    The developer surface moved with the company. sailthru.com now 302s to
+    zetaglobal.com/sailthru/, and the documentation that used to live at
+    getstarted.sailthru.com (now unreachable — TLS handshake failure) and
+    getstarted.meetmarigold.com is served from
+    products.zetaglobal.com/sailthru/. api.sailthru.com itself still answers
+    API calls, but a bare GET of its root now 302s to the documentation site.
+deprecated_operations: []
+changelog: changelog/sailthru-changelog.yml

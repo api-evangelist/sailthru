@@ -1,0 +1,29 @@
+generated: '2026-08-12'
+method: searched
+source: https://zetaglobal.com/sailthru/
+plan_count: 0
+public_pricing: false
+model: enterprise-contract
+signup: https://my.sailthru.com/
+note: >-
+  Sailthru publishes no plans, tiers or list prices. It is sold as an
+  enterprise contract through Zeta Global sales; the product page carries a
+  demo request and no pricing. zetaglobal.com/pricing/ returns 404 and there
+  is no pricing page anywhere on the Sailthru documentation site. API access,
+  request ceilings and features such as the Premium-only endpoints (API error
+  22, "You must be a Premium client to use this API call") are therefore
+  contract-scoped and not publicly discoverable. Recorded as an honest zero
+  rather than omitted, and no Pricing pointer is wired in apis.yml because
+  there is no pricing page to point at.
+plans: []
+entitlement_signals:
+- api_error: 22
+  message: You must be a Premium client to use this API call
+  meaning: Some endpoints are gated to a higher contract tier that is not publicly named.
+- api_error: 21
+  message: You must be approved to email
+  meaning: Sending is gated on account approval, not on a self-serve plan.
+evidence:
+- {url: 'https://zetaglobal.com/pricing/', status: 404}
+- {url: 'https://zetaglobal.com/sailthru/', status: 200, note: product page, demo request only}
+checked: '2026-08-12'

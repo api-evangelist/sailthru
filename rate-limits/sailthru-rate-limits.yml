@@ -1,0 +1,48 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+docs: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+api: sailthru:sailthru-api
+limit_count: 5
+scope: per-api-key, per-endpoint, per-method
+window: 1 second
+note: >-
+  Sailthru publishes per-endpoint, per-method request ceilings and returns
+  runtime rate-limit headers on every call, which is the signal an agent
+  actually needs. Exceeding a ceiling returns HTTP 429 with API error code 43
+  ("Too many [type] requests this minute to /[endpoint] API"). Note the docs
+  describe the ceilings in requests per second while error 43's own text and
+  the 429 description are phrased per minute; the ceilings below are recorded
+  exactly as the technical-details page states them.
+limits:
+- endpoint: /send
+  method: POST
+  limit: 200
+  window: 1s
+- endpoint: /user
+  method: POST
+  limit: 300
+  window: 1s
+- endpoint: all others
+  method: POST
+  limit: 40
+  window: 1s
+- endpoint: all
+  method: GET
+  limit: 300
+  window: 1s
+- endpoint: all
+  method: DELETE
+  limit: 40
+  window: 1s
+headers:
+  limit: X-Rate-Limit-Limit
+  remaining: X-Rate-Limit-Remaining
+  reset: X-Rate-Limit-Reset
+  retry_after: null
+exhaustion:
+  http_status: 429
+  api_error_code: 43
+  api_error_message: Too many [type] requests this minute to /[endpoint] API
+  envelope_fields: [error, errormsg]
+concurrency: null

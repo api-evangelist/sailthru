@@ -1,0 +1,65 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/developers/api-client/javascript.html
+docs: https://products.zetaglobal.com/sailthru/Content/developers/api-client/javascript.html
+api: sailthru:sailthru-js-api
+note: >-
+  Sailthru ships no UI component library, no web components and no embeddable
+  dashboards. Its only client-side surface is a single loader script — the
+  Personalization Engine / Horizon tag — which exposes a set of JavaScript
+  integration functions for identity capture, commerce tracking, custom events
+  and consent. Recorded here because it is the client-side counterpart to the
+  server API and is loaded, versioned and consented to independently of it.
+loaders:
+- name: spm.v1.min.js
+  family: Personalization Engine (Horizon)
+  url: https://ak.sail-horizon.com/spm/spm.v1.min.js
+  install: '<script src="https://ak.sail-horizon.com/spm/spm.v1.min.js"></script>'
+  init: "Sailthru.init({ customerId: '<customer id>' })"
+  versioned: false
+families:
+- name: Identity
+  functions:
+  - name: userSignUp
+    description: >-
+      Adds a new user or updates an existing profile by email, optionally
+      managing list memberships and user vars. Sets the sailthru_hid cookie
+      for future session identification.
+  - name: userSignUpConfirmedOptIn
+    description: >-
+      Sends an opt-in confirmation email before adding the user to a list;
+      requires a template name and supports template variables.
+  - name: getCurrentUser
+    description: >-
+      Returns the hashed email (SHA256 or MD5) of the identified user from the
+      sailthru_hid cookie, for third-party data matching and programmatic
+      advertising integrations.
+- name: Commerce
+  functions:
+  - name: addToCart
+    description: >-
+      Tracks cart additions and removals; accepts an array of items with
+      URL/SKU, quantity and price. All Purchase API parameters are available.
+  - name: purchase
+    description: >-
+      Records a completed purchase, cancels scheduled cart-abandonment
+      reminders and updates inventory; sets channel to "online".
+- name: Events
+  functions:
+  - name: customEvent
+    description: >-
+      Fires a custom event to update user vars, send email, or activate a
+      Lifecycle Optimizer flow. Accepts identification by email or by
+      alternate id/key pair.
+- name: Consent
+  functions:
+  - name: gdprDoNotTrack
+    description: >-
+      Opts the user out of cross-device tracking and purges tracking cookies;
+      only anonymous engagement metrics are retained afterwards.
+  - name: cookiesDoNotTrack
+    description: >-
+      Suppresses on-site tracking cookies without a full opt-out; email
+      engagement from message clicks is preserved.
+component_count: 0
+function_count: 8

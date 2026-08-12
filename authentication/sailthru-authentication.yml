@@ -1,0 +1,67 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+docs: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+api: sailthru:sailthru-api
+note: >-
+  Sailthru predates OpenAPI and publishes no machine-readable security scheme,
+  so this profile is read from the API technical-details page rather than
+  derived from a spec. Authentication is a shared-secret request-signing model:
+  every call carries the account's api_key plus a sig parameter that is an MD5
+  hash of the account secret concatenated with the alphabetically sorted values
+  of every request parameter. There is no OAuth 2.0, no OpenID Connect, no
+  bearer token and no scope surface — which is why scopes/ is deliberately
+  absent from this repo rather than empty.
+summary:
+  types: [apiKey, requestSignature]
+  api_key_in: [query, formData]
+  oauth2_flows: []
+  scopes: false
+  mtls: false
+schemes:
+- name: api_key
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: The unique identifier for the company account, sent on every request.
+  required: true
+- name: sig
+  type: requestSignature
+  in: query
+  parameter: sig
+  algorithm: MD5
+  description: >-
+    MD5 hash of the account secret + api_key + format + the JSON-object
+    parameter values, sorted alphabetically. Parameters must NOT be
+    URL-encoded before the signature is generated, only after.
+  required: true
+- name: format
+  type: parameter
+  in: query
+  parameter: format
+  values: [json, xml]
+  description: >-
+    Response serialization; participates in the signature, so it is part of
+    the authenticated request rather than a content-negotiation header.
+  required: true
+transport:
+  https_required: true
+  tls: TLS 1.2 or higher; SSL is not supported
+  encoding: UTF-8
+credential_management:
+  console: API & Postbacks settings in the Sailthru application
+  ip_allowlist: true
+  ip_allowlist_error: 'API error 4 — Disallowed IP'
+  rotation_policy: null
+failure_modes:
+- {http_status: 401, api_error: 3, meaning: Invalid API key}
+- {http_status: 401, api_error: 5, meaning: Authentication failed}
+- {http_status: 403, api_error: 4, meaning: Disallowed IP}
+- {http_status: 400, api_error: 2, meaning: 'Missing HTTPS GET/POST parameter (e.g. api_key)'}
+webhook_authentication:
+  mechanism: shared-secret signature
+  description: >-
+    API postbacks posted back to a customer-hosted URL carry api_key and a sig
+    that is a hash of the API key and all parameter values, so the receiver can
+    verify the call originated from Sailthru.
+  source: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/postbacks.html

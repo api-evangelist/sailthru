@@ -1,0 +1,39 @@
+generated: '2026-08-12'
+method: searched
+source: https://github.com/sailthru/sailthru-cli
+name: sailthru-cli
+official: true
+status: abandoned
+note: >-
+  Sailthru published a first-party CLI from its own GitHub organization, but it
+  has not been touched since 2014-01-31 and its README still points at
+  docs.sailthru.com, a host that no longer resolves. It is a thin generic
+  wrapper — verb + action + JSON payload — rather than a resource-oriented
+  command surface, and the current documentation set does not mention it at
+  all. Recorded because it exists and is first-party; do not treat it as a
+  supported path.
+install:
+- method: npm
+  command: npm install sailthru-cli -g
+  registry: npm
+  package: sailthru-cli
+license: MIT
+last_commit: '2014-01-31'
+language: CoffeeScript
+invocation:
+  form: 'sailthru-cli <VERB> <action> <json-payload>'
+  verbs: [GET, POST, DELETE]
+  default_verb: GET
+  action: any valid Sailthru API endpoint name
+  payload: valid JSON
+  default_api_url: https://api.sailthru.com
+credentials:
+  flags: ['--key', '--secret', '--url']
+  config_file:
+    flag: '--config'
+    fields: [apiKey, apiSecret, apiUrl]
+commands: []
+commands_note: >-
+  There is no fixed command tree — the CLI proxies whatever endpoint name is
+  passed as the action, so its surface is exactly the endpoint list in
+  errors/ and the API reference.

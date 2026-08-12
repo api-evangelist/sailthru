@@ -1,0 +1,111 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+docs:
+- https://products.zetaglobal.com/sailthru/Content/developers/api-basics/technical.html
+- https://products.zetaglobal.com/sailthru/Content/developers/api-basics/responses.html
+- https://products.zetaglobal.com/sailthru/Content/developers/api-basics/postbacks.html
+api: sailthru:sailthru-api
+note: >-
+  Cross-cutting request/response semantics for the Sailthru API, read from the
+  developer documentation. Sailthru is an RPC-over-HTTP design from the late
+  2000s: the resource is the path segment, the verb carries the intent, and
+  every payload — including complex nested objects — travels as form-encoded
+  parameters rather than a JSON request body. Several conventions modern
+  agents rely on are simply absent, and are recorded as such below rather
+  than inferred.
+request:
+  style: rpc-over-http
+  base_url: https://api.sailthru.com
+  path_form: /<endpointName>
+  methods: [GET, POST, DELETE]
+  get_params: query string
+  post_params: request body, application/x-www-form-urlencoded
+  delete_params: query string
+  json_body: false
+  json_in_params: >-
+    Structured arguments are passed as JSON-encoded values inside form
+    parameters, not as a JSON request body.
+  encoding: UTF-8
+  https_required: true
+  tls: TLS 1.2+; SSL not supported
+authentication:
+  style: api-key plus MD5 request signature
+  parameters: [api_key, sig, format]
+  detail: authentication/sailthru-authentication.yml
+content_negotiation:
+  mechanism: format parameter
+  values: [json, xml]
+  accept_header_honored: false
+  note: >-
+    Serialization is selected by a signed request parameter, not an Accept
+    header — so an agent that negotiates by header will not get what it asked
+    for. A format mismatch surfaces as HTTP 406.
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    Sailthru documents no idempotency key, no request-replay window and no
+    deduplication contract on any endpoint, including POST /send. Retrying a
+    send after a timeout risks a duplicate message. No Idempotency pointer is
+    wired in apis.yml because the contract does not exist.
+pagination:
+  style: limit-only, per-endpoint
+  cursor: false
+  offset: false
+  parameters:
+  - name: limit
+    endpoints: [/blast]
+    description: >-
+      Maximum number of records to return when requesting by status; set to 0
+      to return all results.
+  note: >-
+    There is no cross-cutting pagination convention. Most read endpoints
+    return the whole result set, and bulk extraction is handled by the
+    asynchronous Job API (job-queries, job-content, job-update) rather than by
+    paging.
+bulk:
+  mechanism: Job API
+  endpoints: [/job]
+  variants: [job-update, job-content, job-queries]
+  style: asynchronous, poll for job status
+field_expansion:
+  supported: false
+  note: >-
+    The User API uses a `fields` parameter to opt into optional blocks of the
+    profile rather than a generic expansion/sparse-fieldset syntax.
+metadata:
+  supported: true
+  mechanism: user vars and profile fields
+  note: >-
+    Arbitrary custom data is stored as "vars" on user, content and purchase
+    objects; key names are capped at 32 characters (API error 99 on overflow).
+request_tracing:
+  request_id_header: null
+  note: No request-id or correlation header is documented on responses.
+versioning:
+  scheme: none
+  current: null
+  note: >-
+    The API is unversioned — there is no version segment in the path, no
+    version header and no version parameter. Changes ship through the product
+    release notes; see changelog/sailthru-changelog.yml.
+errors:
+  envelope: {fields: [error, errormsg]}
+  rfc9457: false
+  detail: errors/sailthru-error-codes.yml
+rate_limits:
+  signaled: true
+  headers: [X-Rate-Limit-Limit, X-Rate-Limit-Remaining, X-Rate-Limit-Reset]
+  exhaustion: {http_status: 429, api_error: 43}
+  detail: rate-limits/sailthru-rate-limits.yml
+events:
+  mechanism: API postbacks
+  detail: asyncapi/sailthru-postbacks-webhooks.yml
+templating:
+  language: Zephyr
+  docs: https://products.zetaglobal.com/sailthru/Content/developers/zephyr-syntax/syntax-overview.html
+  note: >-
+    Sailthru ships its own template/expression language, Zephyr, used inside
+    email and on-site content. It is part of the developer contract but is not
+    an HTTP API surface.

@@ -1,0 +1,142 @@
+generated: '2026-08-12'
+method: searched
+source: https://products.zetaglobal.com/sailthru/Content/developers/api-client/libraries-overview.html
+docs: https://products.zetaglobal.com/sailthru/Content/developers/api-client/libraries-overview.html
+repo_org: https://github.com/sailthru
+note: >-
+  Sailthru's client-library docs name eight official libraries (Java,
+  JavaScript, Node.js, .NET, Perl, PHP5, Python, Ruby). Every one of them is
+  published from the github.com/sailthru organization, but their release
+  currency diverges sharply: the .NET client shipped a new NuGet build on
+  2026-08-12 and the Node client in 2025, while the Python client's last PyPI
+  release is 2018, PHP5's last Packagist release is 2017 and the Perl client's
+  last CPAN release is 2016 — all predating the API changes documented in the
+  2026 release notes. Versions and dates below were read from each registry's
+  own metadata endpoint on 2026-08-12.
+packages:
+- language: javascript
+  registry: npm
+  name: sailthru-client
+  url: https://www.npmjs.com/package/sailthru-client
+  install: npm install sailthru-client
+  source: https://github.com/sailthru/sailthru-node-client
+  official: true
+  version: 5.0.5
+  published: '2025-02-27'
+- language: python
+  registry: pypi
+  name: sailthru-client
+  url: https://pypi.org/project/sailthru-client/
+  install: pip install sailthru-client
+  source: https://github.com/sailthru/sailthru-python-client
+  official: true
+  version: 2.3.5
+  published: '2018-07-26'
+  note: Last PyPI release predates the current API surface by seven years.
+- language: ruby
+  registry: rubygems
+  name: sailthru-client
+  url: https://rubygems.org/gems/sailthru-client
+  install: gem install sailthru-client
+  source: https://github.com/sailthru/sailthru-ruby-client
+  official: true
+  version: 4.3.0
+  published: '2020-07-15'
+- language: java
+  registry: maven
+  name: com.sailthru.client:sailthru-java-client
+  url: https://central.sonatype.com/artifact/com.sailthru.client/sailthru-java-client
+  install: 'maven: com.sailthru.client:sailthru-java-client:2.4.1'
+  source: https://github.com/sailthru/sailthru-java-client
+  official: true
+  version: 2.4.1
+  published: '2024-02-25'
+- language: dotnet
+  registry: nuget
+  name: Sailthru.Client
+  url: https://www.nuget.org/packages/Sailthru.Client
+  install: dotnet add package Sailthru.Client
+  source: https://github.com/sailthru/sailthru-net-client
+  official: true
+  version: 1.2.3
+  published: '2026-08-12'
+  note: >-
+    Most recently released first-party client; NuGet owners include Zeta
+    Global accounts.
+- language: php
+  registry: packagist
+  name: sailthru/sailthru-php5-client
+  url: https://packagist.org/packages/sailthru/sailthru-php5-client
+  install: composer require sailthru/sailthru-php5-client
+  source: https://github.com/sailthru/sailthru-php5-client
+  official: true
+  version: 1.2.4
+  published: '2017-08-02'
+  note: Still the library the docs point PHP developers at.
+- language: perl
+  registry: cpan
+  name: Sailthru-Client
+  url: https://metacpan.org/dist/Sailthru-Client
+  install: cpanm Sailthru::Client
+  source: https://github.com/sailthru/sailthru-perl-client
+  official: true
+  version: v2.1.0
+  published: '2016-05-05'
+- language: javascript
+  registry: cdn
+  name: spm.v1.min.js
+  url: https://ak.sail-horizon.com/spm/spm.v1.min.js
+  install: '<script src="https://ak.sail-horizon.com/spm/spm.v1.min.js"></script>'
+  official: true
+  version: null
+  published: null
+  note: >-
+    The on-site JavaScript (Personalization Engine / Horizon) tag is
+    CDN-distributed with no registry entry and no version pinned in the URL —
+    the "v1" is a major-line marker, not a release. A consumer cannot tell
+    which build they are served, and neither can we; recorded as null after
+    checking, not left unchecked.
+- language: php
+  registry: packagist
+  name: sailthru/sailthru-magento2-extension
+  url: https://packagist.org/packages/sailthru/sailthru-magento2-extension
+  install: composer require sailthru/sailthru-magento2-extension
+  source: https://github.com/sailthru/sailthru-magento2-extension
+  official: true
+  version: 2.5.8
+  published: '2026-03-16'
+  note: Magento 2 commerce integration, not a general API client.
+- language: javascript
+  registry: npm
+  name: react-native-marigold
+  url: https://www.npmjs.com/package/react-native-marigold
+  install: npm install react-native-marigold
+  source: https://github.com/sailthru/sailthru-mobile-react-native-sdk
+  official: true
+  version: 18.0.1
+  published: '2026-05-14'
+  note: Mobile SDK for React Native, published under the Marigold SDK brand.
+- language: dotnet
+  registry: nuget
+  name: SailThruMarigold
+  url: https://www.nuget.org/packages/SailThruMarigold
+  install: dotnet add package SailThruMarigold
+  source: https://github.com/sailthru/sailthru-mobile-ios-sdk
+  official: true
+  version: 18.1.2
+  published: null
+  note: >-
+    Mobile SDK binding; NuGet registration answered but did not return a
+    reliable publish date for the latest version.
+not_found:
+- registry: maven-central
+  query: com.marigold.sdk
+  note: >-
+    The Android/iOS Marigold mobile SDKs are distributed from the org's own
+    maven repository (github.com/sailthru/maven-repository) and CocoaPods, not
+    Maven Central; no Maven Central coordinates resolved.
+- registry: wordpress.org
+  query: sailthru
+  note: >-
+    github.com/sailthru/sailthru-wordpress-plugin is maintained but no
+    matching listing resolved on the wordpress.org plugin directory API.
