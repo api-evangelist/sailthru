@@ -20,7 +20,7 @@ x-source: harvest:marketing-integration-graph
 x-tier: profiled
 x-tier-reason: enrichment
 x-parent-company: 'Zeta Global Holdings Corp. (NYSE: ZETA)'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
