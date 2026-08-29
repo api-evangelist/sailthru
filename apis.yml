@@ -13,6 +13,17 @@ description: 'Sailthru is a cross-channel relationship-marketing and personaliza
   It is complemented by the Zephyr template language, a JavaScript on-site personalization
   tag, mobile SDKs, and API postbacks (webhooks) for opt-out, hardbounce, verify and
   profile-update events.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://zetaglobal.com/wp-content/uploads/2025/12/ZetaMarigold-Landing-page-images-09-1.png
 url: https://raw.githubusercontent.com/api-evangelist/sailthru/refs/heads/main/apis.yml
 x-type: company
