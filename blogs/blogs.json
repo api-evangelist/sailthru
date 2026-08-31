@@ -2,13 +2,17 @@
   "repo": "sailthru",
   "feeds": [
     {
+      "source": "https://zetaglobal.com/feed/",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://zetaglobal.com/about/contact-us/",
-      "feed_url": "https://zetaglobal.com/feed/",
+      "feed_url": "https://zetaglobal.com/about/contact-us/",
       "title": "",
       "saved": 0,
-      "method": "discovered"
+      "method": "none"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-22T20:20:02Z"
+  "fetched": "2026-08-30T22:33:40Z"
 }
