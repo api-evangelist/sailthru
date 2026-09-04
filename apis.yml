@@ -24,6 +24,21 @@ deliveryModel:
   - pricing
   generated: '2026-08-28'
   method: derived
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - rate-limits
+  - security
+  generated: '2026-09-03'
+  method: derived
 image: https://zetaglobal.com/wp-content/uploads/2025/12/ZetaMarigold-Landing-page-images-09-1.png
 url: https://raw.githubusercontent.com/api-evangelist/sailthru/refs/heads/main/apis.yml
 x-type: company
