@@ -1,30 +1,28 @@
-# Kin Score artifact — sailthru — 2026-08-27T132314
+# Kin Score artifact — sailthru — 2026-10-03T000835
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: sailthru
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T132314
-  composite: 54.4
-  band: strong
+  schema_version: 0.23.0
+  scored_at: '2026-10-03'
+  run_ts: 2026-10-03T000835
+  composite: 51.3
+  band: developing
   facets:
-    discoverability: 68.5
-    contract_quality: 42.7
-    governance: 4.5
+    discoverability: 68.3
+    contract_quality: 39.0
+    contract_governance: 4.5
     operational_transparency: 68.4
     developer_ergonomics: 71.4
-    commercial_clarity: 43.4
-    contract_governance: 4.5
     access_clarity: 43.4
   agent_readiness:
-    score: 25.2
-    band: agent-aware
+    score: 33.8
+    band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: false
       reversibility_documented: false
-      mcp_server: false
+      mcp_server: verified
       auth_clarity: bearer
       idempotency: false
       error_semantics: documented
@@ -44,7 +42,8 @@ kin_score:
     applies: true
     regime: Telecommunications
     regime_id: telecommunications
-    score: 59.7
+    score: 35.8
     matched_via: tags
   provenance:
+    mcp: first-party
     conformance: derived
