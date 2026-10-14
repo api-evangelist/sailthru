@@ -126,7 +126,7 @@ common:
 - type: Compliance
   url: https://trust.zetaglobal.com/?product=sailthru
 - type: Website
-  url: https://zetaglobal.com/sailthru/
+  url: https://www.sailthru.com/
 - type: DeveloperPortal
   url: https://products.zetaglobal.com/sailthru/Content/developers/overview.html
 - type: Documentation
