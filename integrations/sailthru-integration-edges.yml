@@ -3,6 +3,7 @@ method: searched
 checked:
 - https://vendor-list.consensu.org/v3/vendor-list.json
 - shopify/integrations/shopify-integration-edges.yml
+- wordpress/integrations/wordpress-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: IAB Europe TCF Global Vendor List
@@ -58,5 +59,22 @@ edges:
   listing_count: 1
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/sailthru-widget/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Sailthru for WordPress
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
 source:
 - shopify/integrations/shopify-integration-edges.yml
