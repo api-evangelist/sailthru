@@ -114,7 +114,7 @@
     - connectors/applications/sailthru
     vendor_link: http://www.sailthru.com/
     builder: Fivetran
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: sailthru-meltano
   label: Meltano
@@ -149,5 +149,5 @@
     - silver
     - unknown
     builder: 'community (Meltano Hub variant maintainers: bytecodeio, singer-io, voxmedia)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
