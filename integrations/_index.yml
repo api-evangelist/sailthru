@@ -151,3 +151,96 @@
     builder: 'community (Meltano Hub variant maintainers: bytecodeio, singer-io, voxmedia)'
   status: not-a-workflow
   arazzo: null
+- slug: sailthru-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.sailthru.client/sailthru-java-client
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.sailthru.client:sailthru-java-client
+      version: 2.4.2
+      released: '2025-12-04'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.sailthru.client/sailthru-java-client
+      repo_leg: domain:sailthru.com
+      publisher_leg: groupId:sailthru.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: sailthru-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/sailthru-client
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: sailthru-client
+      version: 5.0.5
+      released: '2026-09-02'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/sailthru-client
+      repo_leg: github-org:sailthru
+      publisher_leg: email:sailthru.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: sailthru-pypi
+  label: PyPI
+  partner: pypi
+  partner_name: PyPI
+  category: official SDK (Python)
+  type: register
+  channel: package-registry
+  evidence: https://pypi.org/project/sailthru-client/
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: sailthru-client
+      version: 2.3.5
+      released: '2018-07-26'
+      released_field: upload_time
+      lapsed: true
+      page: https://pypi.org/project/sailthru-client/
+      repo_leg: github-org:sailthru
+      publisher_leg: email:sailthru.com
+      matched_by: domain
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
