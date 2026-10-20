@@ -1,5 +1,8 @@
-generated: '2026-10-14'
+generated: '2026-10-20'
 method: searched
+source:
+- shopify/integrations/shopify-integration-edges.yml
+- https://zapier.com/apps/sailthru/integrations
 checked:
 - https://api.nuget.org/v3
 - https://crates.io/api/v1
@@ -18,7 +21,27 @@ checked:
 - shopify/integrations/shopify-integration-edges.yml
 - wordpress/integrations/wordpress-integration-edges.yml
 - zendesk/integrations/zendesk-integration-edges.yml
-marketplace_apps: []
+- https://composio.dev/toolkits/sailthru
+- https://monid.ai/tools/sailthru
+- https://n8n.io/integrations/sailthru/
+- https://zapier.com/apps/sailthru/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: sailthru
+  url: https://zapier.com/apps/sailthru/integrations
+  external_url: https://sailthru.com/
+  partner_tier: BRONZE
+  triggers:
+  - key: listList
+    label: Lists
+  actions:
+  - key: event
+    label: Send a Custom Event
+  - key: user
+    label: Create / Update User Profile
+  searches: []
 edges:
 - partner_name: IAB Europe TCF Global Vendor List
   partner: null
@@ -337,5 +360,241 @@ edges:
   detected: '2026-10-20'
   detected_by: mirror-platform-listings.py
   category: CRM and Marketing
-source:
-- shopify/integrations/shopify-integration-edges.yml
+- partner_name: Splash
+  partner: splashthat
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/splash
+  direction: third-party
+  category: Event Management
+  partner_url: https://splashthat.com/
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Niceboard
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/niceboard
+  direction: third-party
+  category: Website Builders
+  partner_url: https://niceboard.co/
+- partner_name: involve.me
+  partner: involve-me
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/involveme
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.involve.me/integrations/zapier?utm_medium=referral&utm_source=zapier.com&utm_campaign=integrations_directory-listing
+- partner_name: Typeform
+  partner: typeform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/typeform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.typeform.com/signup?utm_medium=referral&utm_source=zapier&utm_campaign=zapier_integration&utm_content=marketplace
+- partner_name: Memberful
+  partner: memberful
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/memberful
+  direction: third-party
+  category: eCommerce
+  partner_url: https://memberful.com/
+- partner_name: Hype
+  partner: pico
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/pico
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://hype.co/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Netlify
+  partner: netlify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/netlify
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.netlify.com/
+- partner_name: FareHarbor
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/fareharbor
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://fareharbor.com/
+- partner_name: Nextdoor
+  partner: nextdoor
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/nextdoor
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://ads.nextdoor.com/
+- partner_name: Ticket Tailor
+  partner: tickettailor
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/ticket-tailor
+  direction: third-party
+  category: Marketing
+  partner_url: https://www.tickettailor.com/
+- partner_name: Admiral
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/admiral
+  direction: third-party
+  category: Marketing
+  partner_url: https://getadmiral.com/
+- partner_name: Iterate
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/iterate
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://iteratehq.com/
+- partner_name: Calendly
+  partner: calendly
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/calendly
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://calendly.com/?utm_medium=partner&utm_source=zapier&utm_campaign=main_partner_page&utm_content=main_inbound_link
+- partner_name: Amazon S3
+  partner: amazon-s3
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/amazon-s3
+  direction: third-party
+  category: Amazon
+  partner_url: https://zapier.com/aws.amazon.com
+- partner_name: TikTok Conversions
+  partner: tiktok
+  partner_match: domain+name-among-holders
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  relationship: ipaas-bridge
+  evidence: https://zapier.com/apps/sailthru/integrations/tiktok-conversion
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://ads.tiktok.com/
+templates:
+- title: Create or update user profiles in Sailthru for new events in Klaviyo
+  url: https://zapier.com/apps/klaviyo/integrations/sailthru/255631237/create-or-update-user-profiles-in-sailthru-for-new-events-in-klaviyo
+  apps:
+  - klaviyo
+  - sailthru
+- title: Create or update Sailthru user profiles from new LinkedIn Ads lead gen form responses
+  url: https://zapier.com/apps/linkedin-ads/integrations/sailthru/255651599/create-or-update-sailthru-user-profiles-from-new-linkedin-ads-lead-gen-form-responses
+  apps:
+  - linkedin-ads
+  - sailthru
+- title: Create or update Sailthru user profiles when new records are added in Airtable
+  url: https://zapier.com/apps/airtable/integrations/sailthru/255662950/create-or-update-sailthru-user-profiles-when-new-records-are-added-in-airtable
+  apps:
+  - airtable
+  - sailthru
+- title: Create or update Sailthru user profiles for every new lead form entry in Google Ads
+  url: https://zapier.com/apps/google-ads/integrations/sailthru/255676539/create-or-update-sailthru-user-profiles-for-every-new-lead-form-entry-in-google-ads
+  apps:
+  - google-ads
+  - sailthru
+template_total: 4
