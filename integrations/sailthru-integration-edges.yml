@@ -25,6 +25,9 @@ checked:
 - https://monid.ai/tools/sailthru
 - https://n8n.io/integrations/sailthru/
 - https://zapier.com/apps/sailthru/integrations
+- https://hex.pm/api
+- https://packagist.org/packages
+- https://pub.dev/api
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -576,6 +579,45 @@ edges:
   direction: third-party
   category: Ads & Conversion
   partner_url: https://ads.tiktok.com/
+- partner_name: Packagist
+  partner: packagist
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (PHP)
+  evidence: https://packagist.org/packages/sailthru/sailthru-magento2-extension
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Packagist (public registry JSON)
+    spec_file: null
+    language: PHP
+    packages:
+    - name: sailthru/sailthru-magento2-extension
+      version: 2.5.8
+      released: '2026-03-16'
+      released_field: time
+      lapsed: false
+      page: https://packagist.org/packages/sailthru/sailthru-magento2-extension
+      repo_leg: github-org:sailthru
+      publisher_leg: org:sailthru
+      matched_by: github-org
+    - name: sailthru/sailthru-php5-client
+      version: 1.2.4
+      released: '2017-08-02'
+      released_field: time
+      lapsed: true
+      page: https://packagist.org/packages/sailthru/sailthru-php5-client
+      repo_leg: github-org:sailthru
+      publisher_leg: org:sailthru
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-php-dart-elixir-package-registries.py
+    detected: '2026-10-22'
+  detected_by: sweep-php-dart-elixir-package-registries.py
+  first_seen: '2026-10-22'
 templates:
 - title: Create or update user profiles in Sailthru for new events in Klaviyo
   url: https://zapier.com/apps/klaviyo/integrations/sailthru/255631237/create-or-update-user-profiles-in-sailthru-for-new-events-in-klaviyo
